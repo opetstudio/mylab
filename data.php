@@ -15,12 +15,12 @@ class baseObj {
 
     public function get ($id, $field)
     {
-        return $this->mysql->query("SELECT $field FROM $table WHERE ID = $id");
+        return $this->mysql->query("SELECT $field FROM $this->table WHERE ID = $id");
     }
 
     public function getAll ($id)
     {
-        $res = $this->mysql->query("SELECT * FROM $table WHERE ID = $id");
+        $res = $this->mysql->query("SELECT * FROM $this->table WHERE ID = $id");
         return $res->fetch_assoc();
     }
 }
