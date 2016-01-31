@@ -1,8 +1,7 @@
 <?php
 require_once("data.php");
 
-$ArrayURL = split('/', $_SERVER[REQUEST_URI]));
-$id = $ArrayURL[1];
+$id = $_GET['id'];
 $data = new dataObj();
 
 if (is_object($data) = true) $status = '200 OK';
