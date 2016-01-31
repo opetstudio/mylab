@@ -2,7 +2,7 @@
 require_once("data.php");
 
 $id = $_GET['id'];
-$data = new baseObj();
+$data = new propertyData();
 
 if (is_object($data)) $status = '200 OK';
 $status_header = 'HTTP/1.1 $status';
