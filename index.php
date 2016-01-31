@@ -5,4 +5,5 @@
 	echo "commit for iss53";
 	echo "Edit fiture";
 	echo "Edit fiture lagisss";
+	echo "Edit fiture tes lagi";
 ?>
