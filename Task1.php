@@ -12,6 +12,7 @@ class Task1
 		return true;
 	}
 	public function fizzBuzzBazz($from=0,$to=0){
+		$twoOrder= 0;
 	}
 }
 ?>
