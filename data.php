@@ -4,8 +4,9 @@ class baseObj {
     public $mysql = null;
     private $table = null;
 
-    public function __construct ()
+    public function __construct ($table)
     {
+		$this->table = $table;
         $this->mysql = new mysqli("localhost", "root", "root", "mylab");
         if ($this->mysql->connect_errno) {
             echo "Failed to connect to MySQL: (" . $this->mysql->connect_errno . ") " . $this->mysql->connect_error;
@@ -36,6 +37,10 @@ class propertyData extends baseObj {
     private $swimmingPool = null;
 
     private $table = 'Property';
+	
+	public function __construct (){
+		parent::__construct($this->table);
+	}
 
     public function getType ($ID) { $Type = $this->get( $ID, 'Type'); return $Type; }
     public function getTitle ($ID) { $Title = $this->get( $ID, 'Title') ; return $Type;}
