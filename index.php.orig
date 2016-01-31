@@ -1,0 +1,12 @@
+<?php
+	echo "Hello Worldsssss.";
+	echo "Hello World.";
+	echo "Apa kabar?";
+	echo "commit for iss53";
+<<<<<<< HEAD
+	echo "Edit fiture";
+	echo "Edit fiture lagisss";
+=======
+	echo "Edit fiture tes lagi";
+>>>>>>> 04ef8853fc1a30310113bd17d966cdb5accbb402
+?>
