@@ -5,9 +5,9 @@ $id = $_GET['id'];
 $data = new propertyData();
 
 if (is_object($data)) $status = '200 OK';
-$status_header = 'HTTP/1.1 $status';
+$status_header = 'HTTP/1.1 '.$status;
 
 header($status_header);
-return json_encode( $data->getAll($id) );
+echo json_encode( $data->getAll($id) );
 
 ?>
