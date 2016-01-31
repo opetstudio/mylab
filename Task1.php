@@ -9,6 +9,7 @@ class Task1
 			elseif($i%5==0) echo " Buzz ";
 			else echo " $i " ;
 		}
+		return true;
 	}
 }
 ?>
