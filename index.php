@@ -3,4 +3,5 @@
 	echo "Apa kabar?";
 	echo "commit for iss53";
 	echo "Edit fiture";
+	echo "Edit fiture lagi";
 ?>
