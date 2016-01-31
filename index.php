@@ -6,4 +6,5 @@
 	echo "Edit fiture";
 	echo "Edit fiture lagisss";
 	echo "Edit fiture tes lagi";
+	echo "iss01";
 ?>
