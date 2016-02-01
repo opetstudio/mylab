@@ -51,27 +51,48 @@ class propertyData extends baseObj {
     public function getBedroom ($ID) { $Bedroom = $this->get( $ID, 'Bedroom') ; return $Bedroom;}
     public function getLivingroom ($ID) { $livingroom = $this->get( $ID, 'Living_room') ; return $livingroom;}
     public function getDiningroom ($ID) { $diningroom = $this->get( $ID, 'Diningroom') ; return $diningroom;}
+    public function getSwimmingPool ($ID) {
+		$swimmingPool = new condoData($ID) ; 
+		return $swimmingPool;
+	}
+	public function getHdbblock ($ID) {
+		$hdbblock = new hdbData($ID) ; 
+		return $hdbblock;
+	}
+   
 }
 
 class hdbData extends propertyData {
     private $table = 'HDB';
-	public function __construct (){
+	private $PID = null;
+	public function __construct ($PID=0){
 		parent::__construct();
 		$this->setTable($this->table);
+		$this->PID = $PID;
 	}
     public function getHDBBlock ($ID) { $this->hdbblock = $this->get($ID, 'HDBBlock'); return $this->hdbblock; }
+	public function getHDBBlockByPID () {
+		$swimmingPool = $this->mysql->query("SELECT * FROM $this->table WHERE PID = $this->PID");
+        return $swimmingPool->fetch_assoc();
+	}
 }
 
 class condoData extends propertyData {
     private $table = 'ConDO';
-	public function __construct (){
+    private $PID = null;
+	public function __construct ($PID=0){
 		parent::__construct();
 		$this->setTable($this->table);
+		$this->PID = $PID;
 	}
     public function gotSwimmingPool ($ID)
     {
         return $this->get($ID, 'SwimmingPool');
     }
+	public function getSwimmingPoolByPID () {
+		$swimmingPool = $this->mysql->query("SELECT * FROM $this->table WHERE PID = $this->PID");
+        return $swimmingPool->fetch_assoc();
+	}
 }
 
 ?>

@@ -9,5 +9,7 @@ $status_header = 'HTTP/1.1 '.$status;
 
 header($status_header);
 echo json_encode( $data->getAll($id) );
+echo json_encode( $data->getSwimmingPool($id)->getSwimmingPoolByPID() );
+echo json_encode( $data->getHdbblock($id)->getHdbblockByPID() );
 
 ?>
