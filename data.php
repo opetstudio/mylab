@@ -4,14 +4,17 @@ class baseObj {
     public $mysql = null;
     private $table = null;
 
-    public function __construct ($table)
+    public function __construct ()
     {
-		$this->table = $table;
         $this->mysql = new mysqli("localhost", "root", "root", "mylab");
         if ($this->mysql->connect_errno) {
             echo "Failed to connect to MySQL: (" . $this->mysql->connect_errno . ") " . $this->mysql->connect_error;
         }
     }
+	
+	public function setTable($table=""){
+		$this->table = $table;
+	}
 
     public function get ($id, $field)
     {
@@ -39,9 +42,9 @@ class propertyData extends baseObj {
     private $table = 'Property';
 	
 	public function __construct (){
-		parent::__construct($this->table);
+		parent::__construct();
+		$this->setTable($this->table);
 	}
-
     public function getType ($ID) { $Type = $this->get( $ID, 'Type'); return $Type; }
     public function getTitle ($ID) { $Title = $this->get( $ID, 'Title') ; return $Type;}
     public function getAddress ($ID) { $Address = $this->get( $ID, 'Address') ; return $Address;}
@@ -52,11 +55,19 @@ class propertyData extends baseObj {
 
 class hdbData extends propertyData {
     private $table = 'HDB';
+	public function __construct (){
+		parent::__construct();
+		$this->setTable($this->table);
+	}
     public function getHDBBlock ($ID) { $this->hdbblock = $this->get($ID, 'HDBBlock'); return $this->hdbblock; }
 }
 
 class condoData extends propertyData {
     private $table = 'ConDO';
+	public function __construct (){
+		parent::__construct();
+		$this->setTable($this->table);
+	}
     public function gotSwimmingPool ($ID)
     {
         return $this->get($ID, 'SwimmingPool');
